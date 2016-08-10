@@ -1,0 +1,83 @@
+<!DOCTYPE html> 
+<html>
+   <head>
+     <title>jQuery Mobile Web App</title>
+     <meta charset="utf-8">
+<title>jQuery Mobile Web App</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="jquery.serializejson.js"></script>
+	 <script>
+ //$('#pageinit2').on("pageinit",function(){
+	 $(document).ready(function() {
+$("#delete").on('click',function() {
+
+    var username=$("#deleteusername").val();
+	var password=$("#deletepassword").val();
+    var myData = 'username='+username+'&password='+password;
+              
+        $.ajax({
+          url:'DeleteAC',
+          type:"DELETE",
+          dataType : 'text',
+          data:myData,
+        success: function(msg, status){
+            alert(msg);
+			window.location.href="JM_Menu.html"; 
+           
+                },
+                 error:function(xhr, ajaxOptions, thrownError){
+                    alert(xhr.status);
+                    alert(thrownError);
+                 }
+            });
+   
+});
+
+
+
+
+});
+</script>
+   </head>
+  <body>
+    <div data-role="page" id="pageinit2">
+    
+    <div data-role="panel" id="myPanel">
+    <h2>Menu</h2>
+    <a href="JM_Main_logined.html" data-role="button" data-ajax="false">Home</a>
+    <a href="JM_seekhelp.html" data-role="button" data-ajax="false">Seek Help</a>
+    <a href="JM_drugdata.html" data-role="button" data-ajax="false">Drug Data</a>
+    <a href="JM_forum.html" data-role="button" data-ajax="false">Forum</a>
+  </div>
+  
+      <div data-role="header">
+      <a href="JM_Main_logined.html" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+      <h1>Delete Accpunt</h1>
+      </div>
+      
+      <div data-role="content">
+      
+      <p>Click on the button below to open the Menu.</p>
+    <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Menu</a>
+    
+        <p>Insert your Username and Password to Delete Account !</p>
+               
+        Username: <input type="text" id="deleteusername"><br>
+		Password: <input type="password" id="deletepassword"><br>
+		<button id="delete" data-theme="b">Delete now</button>
+        
+        <a href="pageinit.html" data-role="button" data-rel="back" data-theme="b">Back</a>
+      </div>
+    
+    
+	  <div data-role="footer">
+    <a href="JM_Menu.html" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-arrow-l ui-btn-icon-left">Logout</a>
+	<h4>Delete Account</h4>
+	</div>
+    </div>
+  </body>
+</html>

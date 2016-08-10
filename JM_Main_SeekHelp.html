@@ -1,0 +1,47 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery Mobile Web App</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<link href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head> 
+<body> 
+
+<div data-role="page" id="pageone">
+	<div data-role="header">
+    	<a href="JM_Menu.html" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+		<h1>Drug Information App</h1>
+        <a href="JM_Menu.html" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-home ui-btn-icon-carat-l" data-rel="back">Back</a>
+	</div>
+    
+<div data-role="main" class="ui-content">
+    <h2>Search by Drug Name</h2>
+    <h5>You can only view the information of the drugs, want more function? please <a href="JM_Menu.html">login</a> or <a href="JM_register_json.html">register</a></h5>
+    <form class="ui-filterable">
+      <input id="myFilter" data-type="search" placeholder="Search for names..">
+    </form>
+    <ul data-role="listview" data-filter="true" data-input="#myFilter" data-autodividers="true" data-inset="true">
+      <li><a href="#Cocaine">Cocaine</a></li>
+      <li><a href="#Cannabis">Cannabis</a></li>
+      <li><a href="#Cough Medicine">Cough Medicine</a></li>
+      <li><a href="#Heroin">Heroin</a></li>
+      <li><a href="#Ketamine">Ketamine</a></li>
+      <li><a href="#Medicinal Tablets">Medicinal Tablets</a></li>
+      <li><a href="#Methamphetamine">Methamphetamine</a></li>
+      <li><a href="#Salvia divinorum">Salvia divinorum</a></li>
+      <li><a href="#Synthetic cannabinoids">Synthetic cannabinoids</a></li>
+
+    </ul>
+  </div>
+  	<div data-role="footer">
+	<a href="JM_Menu.html" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+    <h1>Drug Information App</h1>
+  	</div>
+</div>
+
+</body>
+</html>

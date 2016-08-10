@@ -1,0 +1,51 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery Mobile Web App</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+</head> 
+<body> 
+<div data-role="page" id="pageone">
+  <div data-role="panel" id="myPanel">
+    <h2>Menu</h2>
+    <a href="JM_Main_logined.html" data-role="button" data-ajax="false" data-theme="b">Home</a>
+    <a href="JM_seekhelp.html" data-role="button" data-ajax="false" data-theme="b">Seek Help</a>
+    <a href="JM_drugdata.html" data-role="button" data-ajax="false" data-theme="b">Drug Data</a>
+
+  </div>
+
+  <div data-role="header">
+   <a href="JM_Main_logined.html" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+    <h1>Home</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <p>Click on the button below to open the Menu.</p>
+    <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow" data-theme="b">Menu</a>
+    
+    <h1 align ="center">Home Page</h1>
+    <pre align ="center">	You have successfully login,
+    	Click the "menu" button,
+    	select different page to continue.
+    </pre>
+    
+    <a href="JM_Menu.html" data-role="button" data-ajax="false" data-theme="b">Logout</a>
+    <a href="JM_deleteacc.html" data-role="button" data-ajax="false" data-theme="b">Delete Account</a>
+    
+</div>
+  
+
+  <div data-role="footer">
+  <a href="JM_Menu.html" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-arrow-l ui-btn-icon-left">Logout</a>
+    <h1>Home</h1>
+  </div>
+</div>
+
+</body>
+</html>

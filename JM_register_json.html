@@ -1,0 +1,98 @@
+<!DOCTYPE html> 
+<html>
+   <head>
+     <title>Developing with jQuery Mobile</title>
+     <meta charset="utf-8">
+<title>jQuery Mobile Web App</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	 <script>
+ //$('#pageinit2').on("pageinit",function(){
+$(document).on('pagecreate', function(){
+			$("#registerbtn").click(function() {
+			   // var URLs="JM_register_json.php";
+          
+				var username=$("#username").val();
+    			var pass1=$("#password").val();
+    			var pass2=$("#repassword").val();
+				var email=$("#email").val();
+	
+				if(pass1==pass2){
+				}else{
+					alert("password doesn't match");
+	   			 return;	
+				}
+	 		
+			//console.log(getaJason());
+        $.ajax({
+  		  	 url:'Register',
+			 //contentType: 'application/json',
+  			 type:"POST",
+           	 dataType : 'json',
+  			 data: {'data':getaJason()},
+               		success: function(data,msg){
+					alert(msg);
+					console.log(data.result);
+					console.log(data['result']);
+					if (String(data.result)=='true')
+					{
+						alert("Account created. ");
+						window.location.href="JM_Menu.html"; 
+              	  	                      }else{
+						alert("Username unavailable, please try another one.");
+						}
+					},												  
+              	 	error:function(xhr, ajaxOptions, thrownError){
+                 	   alert(xhr.status);
+               	 	   alert(thrownError);
+//					   location.reload();
+              	   }
+         	  	 
+			
+			});
+		});	
+		});
+		function getaJason(){
+		return JSON.stringify({
+      			  "username": $('#username').val(),
+      			  "pass1": $('#password').val(),
+       			  "pass2": $('#repassword').val(),
+        		  "email": $('#email').val()
+        });	
+		}
+		
+</script>
+   </head>
+  <body>
+    <div data-role="page" id="pageinit2">
+      <div data-role="header">
+      <a href="JM_Menu.html" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left" >Home</a>
+      <h1>Account Register</h1>
+      </div>
+      <div data-role="content">
+        <p align="center">Insert your information for register !</p>
+        
+        
+       
+	Username: <input type="text" id="username"><br>
+	Password: <input type="password" id="password"><br>
+	re-Password: <input type="password" id="repassword"><br>
+	Email: <input type="text" id="email"><br>
+		<input type="submit" name="register" id="registerbtn" value="Create now" data-theme="b">
+        <a href="pageinit.html" data-role="button" data-rel="back" data-theme="b">Back</a>
+      </div>
+      
+      <div data-role="footer">
+    
+<h4>Drug Info App</h4>
+	</div>
+	
+      
+    </div>
+	  
+      
+  </body>
+</html>

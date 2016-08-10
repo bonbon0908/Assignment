@@ -1,0 +1,58 @@
+<!DOCTYPE html> 
+<html>
+   <head>
+     <title>Developing with jQuery Mobile</title>
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.css"
+ />
+     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+     <script src="http://code.jquery.com/mobile/1.1.0-rc.1/jquery.mobile-1.1.0-rc.1.min.js"> </script>
+	 <script>
+ //$('#pageinit2').on("pageinit",function(){
+$(document).on('pagecreate', function(){
+			$("#loginbtn").click(function() {
+			alert("DD");
+	
+    			var myData = JSON.stringify($('#loginform').serializeObject());
+	 		
+        $.ajax({
+  		  	 url:'JM_register.php',
+  			   type:"GET",
+           dataType : 'json',
+  			   data:myData,
+               		                                                      success: function(msg){
+					alert(msg);
+        			if (msg=='GETsuccess')
+					{
+						alert("Success Login. ");
+              	  	                      }else{
+						alert("Username or Password incorrect!");
+						}
+					},
+                 error:function(xhr, ajaxOptions, thrownError){
+                    alert(xhr.status);
+                    alert(thrownError);
+                 }
+            });
+   
+			});	
+		});
+		
+</script>
+   </head>
+  <body>
+    <div data-role="page" id="pageinit2">
+      <div data-role="header"><h1>Login</h1></div>
+      <div data-role="content">
+        <p>Insert your information for register !</p>
+        <a href="pageinit.html" data-role="button" data-rel="back"> Amazing, now take me back</a>
+        <form name="loginform" >
+        Username: <input type="text" id="loginusername"><br>
+		Password: <input type="password" id="loginpassword"><br>
+		<input type="submit" name="register" id="loginbtn" value="Login">
+		</form>
+      </div>
+    </div>
+	  
+  </body>
+</html>

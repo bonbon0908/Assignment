@@ -1,0 +1,84 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery Mobile Web App</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<script type="text/javascript" src="jquery.serializejson.js"></script>
+</head> 
+<script>
+ //$('#pageinit2').on("pageinit",function(){
+$(document).on('pagecreate', function(){
+			$("#loginbtn").click(function() {
+	
+    			var myData = JSON.stringify($('#loginform').serializeJSON());
+	 		
+        $.ajax({
+  		  	 url:'login',
+  			   type:"GET",
+           dataType : 'json',
+  			   data:{'data':getaJson()},					
+               		success: function(msg){
+				
+        			if (msg.result== 'true')
+					{
+						alert("Success Login. ");
+						window.location.href="JM_Main_logined.html"; 
+              	  	                      }else{
+						alert("Username or Password incorrect!");
+						}
+					},
+                 error:function(xhr, ajaxOptions, thrownError){
+                    alert(xhr.status);
+                    alert(thrownError);
+                 }
+            });
+   
+			});	
+			function getaJson(){
+		return JSON.stringify({
+      			  "username": $('#loginusername').val(),
+      			  "pass1": $('#loginpassword').val(),
+
+        });	
+		}
+		});
+		
+</script>
+
+<body> 
+<div data-role="page">
+	<div data-role="header">
+    <a href="JM_Menu.html" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+<h1>Drug Information App</h1>
+	</div>
+    <div>
+    <font face="Arial">
+    	<p align = "center"> Welcome to use the Drug information Mobile App ! <br>
+        					Login to see more !
+        </p>
+       </font>
+    </div>
+    
+    <div data-role="content" algin = "center">               
+        <form name="loginform" >
+        Username: <input type="text" id="loginusername"><br>
+		Password: <input type="password" id="loginpassword"><br>
+		<input type="submit" name="register" id="loginbtn" value="Login" data-theme="b">
+		</form>
+     <hr size="3" align ="center" color="#000000">
+     <a href="JM_changepassword.html" data-role="button" data-ajax="false" data-theme="b">Forgot your password?</a>
+   		<a href="JM_register_json.html" data-role="button" data-ajax="false" data-theme="b">No Account? Register</a>     
+         <a href="JM_Main_Nologin.html" data-role="button" data-ajax="false" data-theme="b">Go without login</a>
+   </div>
+	<div data-role="footer">
+    
+<h4>Drug Info App</h4>
+	</div>
+	</div>
+</body>
+</html>

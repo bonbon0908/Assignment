@@ -1,0 +1,84 @@
+<!DOCTYPE html> 
+<html>
+   <head>
+     <title>Developing with jQuery Mobile</title>
+     <meta charset="utf-8">
+<title>jQuery Mobile Web App</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgO4fknGK-N_8kNH0lTjuEVzxrVeg3OjI"></script>
+<script type="text/javascript" src="javascripts/jquery.googlemap.js"></script>
+
+<script>
+	function initialize() {
+	var mapProp = {
+    center:new google.maps.LatLng(22.277083,114.172855),
+    zoom:19,
+    mapTypeId:google.maps.MapTypeId.ROADMAP
+	
+	};
+	var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+	
+	//var addressArray = new Array("Room 1501-1504, Tung Ning Building, 2 Hillier Street, Sheung Wan, Hong Kong");
+	
+	var marker = new google.maps.Marker({
+		position: new google.maps.LatLng(22.277083,114.172855),
+		map: map,
+		title: 'Address!'
+		});
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+	 
+   </head>
+  <body>
+    <div data-role="page" id="pageone">
+  <div data-role="header">
+  	<a href="JM_Menu.html" class="ui-btn ui-btn-left ui-corner-all ui-shadow ui-icon-home ui-btn-icon-left">Home</a>
+    <h1>Seek Help</h1>
+  </div>
+
+  <div data-role="main" class="ui-content">
+    <h1>Seek Help</h1>
+    <h3>Caritas Lok Heep Clu</h3>
+    <h4>Hong Kong Centre</h4>
+    
+    <pre>	 Address: 12/F Southorn Centre,
+    	 130 Hennessy Road,
+         Wan Chai,
+         Hong Kong
+         
+         Telephone: 2893 8060
+         
+         Email: fslhchk@caritassws.org.hk
+         
+         Website: www.caritaslokheepclub.org.hk
+         
+    </pre>    
+
+    <div id="googleMap" style="width:500px;height:380px;">
+	
+	</div>
+    
+  </div>
+  
+  <a href="pageinit.html" data-role="button" data-rel="back" data-theme="b">Back</a>
+
+  <div data-role="footer">
+    <h1>Seek Help</h1>
+  </div>
+</div>
+
+	
+      
+        
+        
+    
+	  
+      
+  </body>
+</html>
